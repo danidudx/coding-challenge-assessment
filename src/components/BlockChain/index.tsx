@@ -28,7 +28,7 @@ const BlockChain = () => {
    * Should only need to pass to the last block
    */
   const onDelete = () => {
-    setBlockNumbers(blockNumbers.slice(0, -1));
+    setBlockNumbers((prev) => prev.slice(0, -1));
   };
 
   /**
