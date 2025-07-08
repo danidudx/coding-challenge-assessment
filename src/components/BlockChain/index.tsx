@@ -12,6 +12,7 @@ import styles from "./styles.module.css";
 const BlockChain = () => {
   // Contains all hashes
   const [hashes, setHashes] = useState<string[]>([]);
+  const [blockNumbers, setBlockNumbers] = useState<number[]>([1]);
 
   /**
    * Complete this function
@@ -45,7 +46,7 @@ const BlockChain = () => {
   return (
     <div className={styles.blockChain}>
       <h1>Block Chain Demo</h1>
-      <div>Total Blocks: 0</div>
+      <div>Total Blocks: {blockNumbers.length}</div>
       <Block block={1} hash={hashes[0]} onHash={onHash} onDelete={onDelete} />
       <button type="button" onClick={() => onAdd()}>
         Add Block
