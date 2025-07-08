@@ -49,7 +49,7 @@ const Block = ({
   const isValid = hash && isValidHash(hash);
   const blockClass = isValid ? styles.block : styles.blockInvalid;
   return (
-    <div className={blockClass}>
+    <div className={`${blockClass} ${styles.container}`}>
       <div>
         Block <span>{block}</span>
       </div>
