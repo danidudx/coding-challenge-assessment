@@ -12,7 +12,7 @@ import styles from "./styles.module.css";
 const BlockChain = () => {
   // Contains all hashes
   const [hashes, setHashes] = useState<string[]>([]);
-  const [blockNumbers, setBlockNumbers] = useState<number[]>([1]);
+  const [blockNumbers, setBlockNumbers] = useState<number[]>([]);
 
   /**
    * Complete this function
