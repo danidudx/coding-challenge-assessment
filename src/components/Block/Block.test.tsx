@@ -70,7 +70,25 @@ it("Delete is called correctly", () => {
  * We need to be able to click on mine and expect the block hash to now be valid
  * The text 'Valid' should also be in the document
  */
-it("Mining works correctly", () => {});
+it("Mining works correctly", () => {
+  const mockOnHash = jest.fn();
+
+  const { getByText, rerender } = render(
+    <Block block={1} onHash={mockOnHash} hash={undefined} />
+  );
+  expect(getByText("Not Valid")).toBeInTheDocument();
+
+  const mineButton = getByText("Mine");
+  userEvent.click(mineButton);
+  const calledWithHash =
+    mockOnHash.mock.calls[mockOnHash.mock.calls.length - 1][1];
+
+  //render the component with the new hash
+  rerender(<Block block={1} onHash={mockOnHash} hash={calledWithHash} />);
+
+  expect(getByText("Valid")).toBeInTheDocument();
+  expect(mockOnHash).toHaveBeenCalled();
+});
 
 /**
  * Changing data effects hash
