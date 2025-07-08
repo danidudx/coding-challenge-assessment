@@ -33,7 +33,14 @@ it("Hash is set on load", () => {
  * Shows not valid text
  * On render, the text 'Not Valid' should be in the document as the hash is not valid
  */
-it("Shows not valid text", () => {});
+it("Shows not valid text", () => {
+  const mockOnHash = jest.fn();
+  const { getByText } = render(
+    <Block block={1} onHash={mockOnHash} hash={undefined} />
+  );
+
+  expect(getByText("Not Valid")).toBeInTheDocument();
+});
 
 /**
  * Delete is called correctly
