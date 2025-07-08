@@ -46,7 +46,24 @@ it("Shows not valid text", () => {
  * Delete is called correctly
  * We need to make sure that when clicking on delete, the delete function is called
  */
-it("Delete is called correctly", () => {});
+it("Delete is called correctly", () => {
+  const mockOnHash = jest.fn();
+  const mockOnDelete = jest.fn();
+
+  const { getByText } = render(
+    <Block
+      block={1}
+      onHash={mockOnHash}
+      onDelete={mockOnDelete}
+      hash={undefined}
+    />
+  );
+
+  const deleteButton = getByText("Delete");
+  userEvent.click(deleteButton);
+
+  expect(mockOnDelete).toHaveBeenCalled();
+});
 
 /**
  * Mining works correctly
