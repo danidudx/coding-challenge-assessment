@@ -18,7 +18,9 @@ const BlockChain = () => {
    * Complete this function
    * onAdd should create a new block
    */
-  const onAdd = () => {};
+  const onAdd = () => {
+    setBlockNumbers([...blockNumbers, blockNumbers.length + 1]);
+  };
 
   /**
    * Complete this function
