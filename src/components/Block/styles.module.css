@@ -5,6 +5,23 @@
   width: 100%;
   max-width: 640px;
   padding: 24px;
+  border-radius: 24px;
+  border: 2px solid black;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 24px;
+}
+
+.blockInvalid {
+  display: flex;
+  flex-direction: column;
+  background: #ff9c9c;
+  width: 100%;
+  max-width: 640px;
+  padding: 24px;
+  border-radius: 24px;
+  border: 2px solid black;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 24px;
 }
 
 .block > div {
@@ -13,7 +30,17 @@
   padding: 6px 0;
 }
 
+.blockInvalid > div {
+  display: flex;
+  flex-direction: column;
+  padding: 6px 0;
+}
 .block > div > span {
+  background: white;
+  padding: 4px;
+}
+
+.blockInvalid > div > span {
   background: white;
   padding: 4px;
 }
