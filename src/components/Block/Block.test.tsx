@@ -18,9 +18,15 @@ it("Hash is set on load", () => {
   //mock function for on hash
   const mockOnHash = jest.fn();
 
-  render(<Block block={1} onHash={mockOnHash} hash={undefined} />);
+  const { getByText } = render(
+    <Block block={1} onHash={mockOnHash} hash={undefined} />
+  );
 
+  //check for onHash was called
   expect(mockOnHash).toHaveBeenCalled();
+
+  //check hash change is reflected in the component
+  expect(getByText("Not Valid")).toBeInTheDocument();
 });
 
 /**
