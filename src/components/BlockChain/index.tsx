@@ -49,7 +49,16 @@ const BlockChain = () => {
     <div className={styles.blockChain}>
       <h1>Block Chain Demo</h1>
       <div>Total Blocks: {blockNumbers.length}</div>
-      <Block block={1} hash={hashes[0]} onHash={onHash} onDelete={onDelete} />
+      {blockNumbers.map((blockNumber, index) => (
+        <Block
+          key={index}
+          block={blockNumber}
+          hash={hashes[0]}
+          onHash={onHash}
+          onDelete={index === blockNumbers.length - 1 ? onDelete : undefined}
+        />
+      ))}
+      {/* <Block block={1} hash={hashes[0]} onHash={onHash} onDelete={onDelete} /> */}
       <button type="button" onClick={() => onAdd()}>
         Add Block
       </button>
