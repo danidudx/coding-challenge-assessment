@@ -95,4 +95,13 @@ it("Mining works correctly", () => {
  * The data textarea can be change,
  * we need to make sure the changes effect the hash and that onHash is called
  */
-it("Changing data effects hash", () => {});
+it("Changing data effects hash", () => {
+  const mockOnHash = jest.fn();
+  const { getByLabelText } = render(
+    <Block block={1} onHash={mockOnHash} hash={undefined} />
+  );
+  mockOnHash.mockClear();
+  const dataTextarea = getByLabelText("Data");
+  userEvent.type(dataTextarea, "Hello World");
+  expect(mockOnHash).toHaveBeenCalled();
+});
