@@ -60,7 +60,7 @@ const BlockChain = () => {
         <Block
           key={index}
           block={blockNumber}
-          hash={hashes[0]}
+          hash={hashes[index]}
           onHash={onHash}
           onDelete={index === blockNumbers.length - 1 ? onDelete : undefined}
         />
